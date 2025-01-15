@@ -13,7 +13,9 @@ import { RouterLink, RouterView } from 'vue-router'
 
   <RouterView />
 
-  <footer></footer>
+  <footer>
+    <h3>bookKeeper</h3>
+  </footer>
 </template>
 
 <style scoped>
@@ -37,6 +39,7 @@ nav {
   align-items: center;
   padding: 10px;
   background-color: darkkhaki;
+  border-radius: 5px;
   font-size: 20px;
   font-weight: bold;
 }
