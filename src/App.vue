@@ -19,8 +19,9 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 * {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 a {

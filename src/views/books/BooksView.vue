@@ -1,6 +1,9 @@
 <template>
   <div class="books">
     <h1>Books</h1>
+
+    <input class="search" type="text" v-model="input" placeholder="Search books..." />
+
     <div v-for="book in books" :key="book.id" class="book">
       <router-link :to="{ name: 'book-details', params: { id: book.id } }">
         <h3>{{ book.title }}</h3>
@@ -58,5 +61,13 @@ a {
   max-width: 600px;
   cursor: pointer;
   color: #444;
+}
+
+.search {
+  margin: auto;
+  border: 1px solid darkslateblue;
+  border-radius: 30px;
+  padding: 15px;
+  width: 30%;
 }
 </style>
