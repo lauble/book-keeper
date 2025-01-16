@@ -1,15 +1,19 @@
+<script setup>
+import BookDetailsCard from '../../components/BookDetailsCard.vue'
+import { defineProps } from 'vue'
+
+const props = defineProps({
+  id: Number,
+})
+</script>
+
 <template>
   <div class="book-details">
     <h1>Book details</h1>
-    <p>The book id is {{ id }}</p>
+    <p>The book id is {{ props.id }}</p>
   </div>
+  <BookDetailsCard />
 </template>
-
-<script>
-export default {
-  props: ['id'],
-}
-</script>
 
 <style>
 .book-details {
