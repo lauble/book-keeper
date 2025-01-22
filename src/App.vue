@@ -50,7 +50,7 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 80px;
+  height: 20px;
   padding: 10px;
   color: white;
   display: flex;

@@ -9,6 +9,8 @@
     <div v-for="book in books" :key="book.id" class="book">
       <router-link :to="{ name: 'book-details', params: { id: book.id } }">
         <h3>{{ book.volumeInfo.title }}</h3>
+        <h5>Publisher: {{ book.volumeInfo.publisher }}</h5>
+        <h5>{{ `${book.volumeInfo.publishedDate}`.slice(0, 4) }}</h5>
       </router-link>
     </div>
   </div>
@@ -29,7 +31,7 @@ export default {
       })
         .then((res) => {
           res.json().then((data) => {
-            this.books = data.items // returns array of objects
+            this.books = data.items // returns array of book objects
             console.log(data)
           })
         })
@@ -44,20 +46,22 @@ export default {
 <style>
 a {
   text-decoration: none;
+  color: darkslategray;
 }
 
 .books {
-  padding: 20px;
+  padding: 50px;
 }
 
-.book h3 {
+.book {
   background: #f4f4f4;
-  padding: 10px;
+  padding: 20px;
   margin: 10px auto;
   border-radius: 10px;
   max-width: 600px;
   cursor: pointer;
   color: #444;
+  display: flex;
 }
 
 .search {
