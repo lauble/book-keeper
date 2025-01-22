@@ -11,7 +11,9 @@
     />
 
     <button @click="fetchData">Search</button>
-    <div v-show="searchInput">{{ `results for "${searchInput}"` }}</div>
+    <div v-show="searchInput" :style="{ padding: '10px', color: 'darkkhaki' }">
+      {{ `results for '${searchInput}'` }}
+    </div>
 
     <div v-for="book in books" :key="book.id" class="book">
       <router-link :to="{ name: 'book-details', params: { id: book.id } }">
