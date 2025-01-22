@@ -67,6 +67,10 @@ a {
 
 button {
   cursor: pointer;
+  border: 1px solid darkslateblue;
+  border-radius: 30px;
+  padding: 15px;
+  font-family: 'Space Grotesk', sans-serif;
 }
 
 .books {
@@ -90,5 +94,6 @@ button {
   border-radius: 30px;
   padding: 15px;
   width: 30%;
+  font-family: 'Space Grotesk', sans-serif;
 }
 </style>
