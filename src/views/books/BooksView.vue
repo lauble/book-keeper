@@ -11,6 +11,7 @@
     />
 
     <button @click="fetchData">Search</button>
+    <button @click="refresh">Refresh</button>
     <div v-show="searchInput" :style="{ padding: '10px', color: 'darkkhaki' }">
       {{ `results for '${searchInput}'` }}
     </div>
@@ -49,6 +50,10 @@ export default {
         .catch((err) => {
           console.error(err)
         })
+    },
+    refresh() {
+      this.input = ''
+      this.fetchData()
     },
   },
 }
