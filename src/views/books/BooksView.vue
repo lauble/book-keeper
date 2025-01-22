@@ -4,9 +4,11 @@
 
     <input class="search" type="text" v-model="input" placeholder="Search books..." />
 
+    <button @click="fetchData">Submit</button>
+
     <div v-for="book in books" :key="book.id" class="book">
       <router-link :to="{ name: 'book-details', params: { id: book.id } }">
-        <h3>{{ book.title }}</h3>
+        <h3>{{ book.volumeInfo.title }}</h3>
       </router-link>
     </div>
   </div>
@@ -16,30 +18,25 @@
 export default {
   data() {
     return {
-      books: [
-        {
-          id: 1,
-          title: 'Be Ready When The Luck Happens',
-          author: 'Ina Garten',
-          year: 2024,
-          details: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-        },
-        {
-          id: 2,
-          title: 'Strongmen',
-          author: 'Ruth Ben-Ghiat',
-          year: 2020,
-          details: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-        },
-        {
-          id: 3,
-          title: 'Thinking Fast and Slow',
-          author: 'Daniel Kahneman',
-          year: 2011,
-          details: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
-        },
-      ],
+      input: '',
+      books: [],
     }
+  },
+  methods: {
+    fetchData() {
+      fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.input}`, {
+        method: 'GET',
+      })
+        .then((res) => {
+          res.json().then((data) => {
+            this.books = data.items // returns array of objects
+            console.log(data)
+          })
+        })
+        .catch((err) => {
+          console.error(err)
+        })
+    },
   },
 }
 </script>
