@@ -27,6 +27,7 @@
 </template>
 
 <script>
+const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY
 export default {
   data() {
     return {
@@ -37,7 +38,7 @@ export default {
   },
   methods: {
     fetchData() {
-      fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.input}`, {
+      fetch(`https://www.googleapis.com/books/v1/volumes?q=${this.input}&key=${API_KEY}`, {
         method: 'GET',
       })
         .then((res) => {
