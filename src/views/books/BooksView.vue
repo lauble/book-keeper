@@ -42,6 +42,7 @@ export default {
       })
         .then((res) => {
           res.json().then((data) => {
+            // console.log(data)
             this.books = data.items // returns array of book objects
             this.searchInput = this.input
             this.input = ''
