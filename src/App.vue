@@ -41,7 +41,7 @@ nav {
   padding: 10px;
   background-color: darkkhaki;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 
