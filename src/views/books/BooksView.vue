@@ -2,9 +2,16 @@
   <div class="books">
     <h1>Books</h1>
 
-    <input class="search" type="text" v-model="input" placeholder="Search books..." />
+    <input
+      class="search"
+      type="text"
+      @keyup.enter="fetchData"
+      v-model="input"
+      placeholder="Search books..."
+    />
 
-    <button @click="fetchData">Submit</button>
+    <button @click="fetchData">Search</button>
+    <div v-show="searchInput">{{ `results for "${searchInput}"` }}</div>
 
     <div v-for="book in books" :key="book.id" class="book">
       <router-link :to="{ name: 'book-details', params: { id: book.id } }">
@@ -21,6 +28,7 @@ export default {
   data() {
     return {
       input: '',
+      searchInput: '',
       books: [],
     }
   },
@@ -32,7 +40,8 @@ export default {
         .then((res) => {
           res.json().then((data) => {
             this.books = data.items // returns array of book objects
-            console.log(data)
+            this.searchInput = this.input
+            this.input = ''
           })
         })
         .catch((err) => {
@@ -49,17 +58,21 @@ a {
   color: darkslategray;
 }
 
+button {
+  cursor: pointer;
+}
+
 .books {
   padding: 50px;
 }
 
 .book {
+  cursor: pointer;
   background: #f4f4f4;
   padding: 20px;
   margin: 10px auto;
   border-radius: 10px;
   max-width: 600px;
-  cursor: pointer;
   color: #444;
   display: flex;
 }
