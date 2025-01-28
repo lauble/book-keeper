@@ -34,24 +34,23 @@ header {
 }
 
 nav {
-  height: 80px;
+  height: 60px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 10px;
   background-color: darkkhaki;
   border-radius: 5px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
 }
 
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  position: relative;
   width: 100%;
   height: 20px;
   padding: 10px;
+  border-radius: 5px;
   color: white;
   display: flex;
   justify-content: center;
