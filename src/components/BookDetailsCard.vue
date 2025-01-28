@@ -1,15 +1,12 @@
 <template>
-  <div class="card">
-    <h1>Book Details Card</h1>
-    <p>This is the book details card. The id is {{ id }}</p>
-
-    <button @click="fetchData">Test</button>
-    <!-- <div v-show="this.book.volumeInfo">
-      {{ this.book.volumeInfo.title }}
-    </div> -->
+  <div class="card" v-show="book">
+    <h2>{{ book.title }}</h2>
+    <h2 v-show="book.subtitle">Subtitle: {{ book.subtitle }}</h2>
+    <p class="book-description">{{ book.description }}</p>
+    <h3>Publisher: {{ book.publisher }}</h3>
+    <h3>Author(s): {{ book.authors.join(',') }}</h3>
   </div>
-
-  <div>Title: {{ book.title }}</div>
+  <!-- <button @click="fetchData">Test</button> -->
 </template>
 
 <script>
@@ -38,6 +35,7 @@ export default {
       }).then((res) => {
         res.json().then((data) => {
           this.book = data.items[0].volumeInfo
+          console.log(this.book)
         })
       })
     },
@@ -51,11 +49,19 @@ export default {
   border: 1px solid darkslategray;
   border-radius: 40px;
   background-color: darkkhaki;
-  padding: 20px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 40%;
+  height: fit-content;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.book-description {
+  padding: 10px;
+  background-color: antiquewhite;
+  border-radius: 10px;
 }
 </style>

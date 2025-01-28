@@ -9,8 +9,8 @@ const props = defineProps({
 
 <template>
   <div class="book-details">
-    <h1>Book details</h1>
-    <p>The book id is {{ props.id }}</p>
+    <h2>Book details</h2>
+    <!-- <p>The book id is {{ props.id }}</p> -->
   </div>
   <BookDetailsCard />
 </template>
@@ -18,5 +18,6 @@ const props = defineProps({
 <style>
 .book-details {
   padding: 20px;
+  font-family: 'Space Grotesk', sans-serif;
 }
 </style>
