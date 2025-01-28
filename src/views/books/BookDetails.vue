@@ -3,7 +3,7 @@ import BookDetailsCard from '../../components/BookDetailsCard.vue'
 import { defineProps } from 'vue'
 
 const props = defineProps({
-  id: Number,
+  id: String,
 })
 </script>
 
