@@ -2,8 +2,14 @@
   <div class="card">
     <h1>Book Details Card</h1>
     <p>This is the book details card. The id is {{ id }}</p>
+
     <button @click="fetchData">Test</button>
+    <!-- <div v-show="this.book.volumeInfo">
+      {{ this.book.volumeInfo.title }}
+    </div> -->
   </div>
+
+  <div>Title: {{ book.title }}</div>
 </template>
 
 <script>
@@ -19,8 +25,11 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      books: [],
+      book: {},
     }
+  },
+  created() {
+    this.fetchData()
   },
   methods: {
     fetchData() {
@@ -28,8 +37,7 @@ export default {
         method: 'GET',
       }).then((res) => {
         res.json().then((data) => {
-          console.log(data)
-          this.books = data.items
+          this.book = data.items[0].volumeInfo
         })
       })
     },
