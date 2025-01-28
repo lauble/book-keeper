@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { defineProps } from 'vue'
+// import { defineProps } from 'vue'
 
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY
 // const props = defineProps({
